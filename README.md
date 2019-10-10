@@ -18,6 +18,11 @@ aws configure
 
 ## Prepare environment
 
+Run Localstack. You can customize it in docker-compose.yml file.
+```bash
+docker-compose up -d
+```
+
 We need to create the S3 bucket where we are going to upload the image 
 
 ```bash
@@ -48,6 +53,8 @@ Serverless: Using serverless-localstack
 Where the path is the route to access to the file. So just open your browser and type:
 
 http://localhost:4572/tutorial/images/upload.png
+
+![](demo.gif)
 
 ## References
 
