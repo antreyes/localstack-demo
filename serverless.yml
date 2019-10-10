@@ -1,0 +1,25 @@
+service: uploadToS3
+
+frameworkVersion: ">=1.1.0"
+
+custom:
+  bucket: tutorial
+  localstack:
+    stages:
+      - local
+    host: http://localhost
+    endpointFile: resources/localstack/localstack_endpoints.json
+    lambda:
+      mountCode: True
+provider:
+  name: aws
+  runtime: python3.7
+
+functions:
+  uploadImageToS3:
+    handler: handler.entry
+    environment:
+      BUCKET_NAME: ${self:custom.bucket}
+
+plugins:
+  - serverless-localstack
